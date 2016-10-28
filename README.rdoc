@@ -1,0 +1,19 @@
+== README
+rails app dcamp_test
+
+To do:
+
+* bootstrap
+* gem 'pg'
+* git init 
+* make a README to update later:
+ **this is a ruby on rails test app for an online learning CMS
+ **Create Users with Devise Auth gem
+ **Log in & Sign up views
+ **Create a scaffold for the content incl free V premium
+ **Add Stripe functionality
+ **Build views to handle free V premium access, 
+ **Deploy the project to live environment (heroku)
+
+Bonus: Add an extra addition to the yearly plan so that they can download the files (screencasts + code used). 
+Bonus: Users should be able to change from a monthly to a yearly plan. 
