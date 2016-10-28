@@ -29,7 +29,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # gem 'devise'
 
-gem 'stripe'
+gem 'stripe' #payments
+gem 'aws-s3', :require => 'aws/s3' #video upload and streaming
 
 
 

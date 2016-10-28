@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'screencast/index'
+
+  get 'screencast/upload'
+
+  get 'screencast/delete'
+
   resources :videos
   resources :charges
   # devise_for :users
@@ -6,5 +12,5 @@ Rails.application.routes.draw do
 
   get 'static_pages/about'
 
-  root 'application#home'
+  root 'screencast#index'
 end
