@@ -1,0 +1,371 @@
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-16 19:03:33 +0000
+
+ActiveRecord::PendingMigrationError - 
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+:
+  activerecord (4.2.7.1) lib/active_record/migration.rb:392:in `check_pending!'
+  activerecord (4.2.7.1) lib/active_record/migration.rb:373:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.7.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.7.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.7.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+   () home/nci/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+   () home/nci/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+   () home/nci/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/39a874fb2e2855fa/variables" for 127.0.0.1 at 2016-11-16 19:03:33 +0000
+  [1m[36m (54.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (6.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to DeviseCreateUsers (20140224203310)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/nci/websites/dcamp_test/db/migrate/20140224203310_devise_create_users.rb:34)
+  [1m[35m (0.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140224203310"]]
+  [1m[36m (19.8ms)[0m  [1mcommit transaction[0m
+Migrating to AddNameToUsers (20140224203311)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD "name" varchar[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140224203311"]]
+  [1m[36m (4.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-16 19:04:02 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by VisitorsController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered visitors/index.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (14.9ms)
+  Rendered layouts/_navigation.html.erb (20.0ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 5880ms (Views: 5830.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/1st_load_framework.self-d8b5b02764d8f85db434dad59cdcf2140a5d3f69c2f2a99b2c9f3556a4f89ebe.css?body=1" for 127.0.0.1 at 2016-11-16 19:04:08 +0000
+
+
+Started GET "/assets/application.self-27a424817124a538a1bd8a9038aea5396ae2ca72ec5dbb40fa23fc96e0859767.css?body=1" for 127.0.0.1 at 2016-11-16 19:04:09 +0000
+
+
+Started GET "/assets/application.self-120f3cf1cb67bea53c4a2a57336b34ca04b04b55a55c38cf76ce20a147e5eff9.js?body=1" for 127.0.0.1 at 2016-11-16 19:04:09 +0000
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-17 15:27:58 +0000
+
+ActiveRecord::PendingMigrationError - 
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+:
+  activerecord (4.2.7.1) lib/active_record/migration.rb:392:in `check_pending!'
+  activerecord (4.2.7.1) lib/active_record/migration.rb:373:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.7.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.7.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.7.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+   () home/nci/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+   () home/nci/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+   () home/nci/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/b742d2e990540349/variables" for 127.0.0.1 at 2016-11-17 15:27:58 +0000
+  [1m[36m (165.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (17.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20140224203310)
+  [1m[35m (0.2ms)[0m  BEGIN
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/nci/websites/dcamp_test/RailsDevise/db/migrate/20140224203310_devise_create_users.rb:34)
+  [1m[36m (19.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (9.6ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")
+  [1m[36m (5.3ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (16.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140224203310"]]
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddNameToUsers (20140224203311)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "users" ADD "name" character varying[0m
+  [1m[35mSQL (6.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140224203311"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (10.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-17 21:43:02 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by VisitorsController#index as HTML
+  [1m[35m (2.9ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered visitors/index.html.erb within layouts/application (27.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (16.4ms)
+  Rendered layouts/_navigation.html.erb (25.1ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 1317ms (Views: 1222.3ms | ActiveRecord: 5.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "user@example.com"]]
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user@example.com' LIMIT 1
+  [1m[36mSQL (26.0ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$11$Myg19zk.bmgHx5Ca6K6ruOP/Kg7DsmsR/pugN/fkQrNDqu5CezW4G"], ["created_at", "2016-11-18 10:58:59.760836"], ["updated_at", "2016-11-18 10:58:59.760836"]]
+  [1m[35m (2.6ms)[0m  COMMIT
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-11-18 12:37:35 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (1616.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (4.2ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 1840ms (Views: 1775.8ms | ActiveRecord: 8.5ms)
+  [1m[36mUser Load (28.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (2.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36m (1.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (12.0ms)[0m  UPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["encrypted_password", "$2a$11$cSvA5DU9K.7jWpBa0HkC8.mCPOkTsFA7SIQhfaf8ybXZn5nEZRixy"], ["updated_at", "2016-11-18 12:41:51.012575"], ["id", 1]]
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (2.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-11-18 12:42:27 +0000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7Nl+0V2d/z+bCmO3tzajjwoYt6J2L0QSOLOU9hkEfjHORk2T/pETuE2bu7raRN7zmYtaU/rjouu6aRadykC/Dg==", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "user@example.com"]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (1.1ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2016-11-18 12:42:27.419004"], ["current_sign_in_at", "2016-11-18 12:42:27.419004"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-11-18 12:42:27.420706"], ["id", 1]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 331ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-18 12:42:27 +0000
+Processing by VisitorsController#index as HTML
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered visitors/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_nav_links_for_auth.html.erb (3.2ms)
+  Rendered layouts/_navigation.html.erb (5.7ms)
+  Rendered layouts/_messages.html.erb (1.9ms)
+Completed 200 OK in 159ms (Views: 157.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2016-11-18 12:42:34 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/_user.html.erb (1.0ms)
+  Rendered users/index.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.8ms)
+  Rendered layouts/_navigation.html.erb (4.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 119ms (Views: 115.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pages/about" for 127.0.0.1 at 2016-11-18 12:42:37 +0000
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"about"}
+  Rendered pages/about.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_nav_links_for_auth.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (5.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 159ms (Views: 156.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-18 12:42:48 +0000
+Processing by VisitorsController#index as HTML
+  [1m[35m (9.3ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered visitors/index.html.erb within layouts/application (11.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_nav_links_for_auth.html.erb (4.9ms)
+  Rendered layouts/_navigation.html.erb (15.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 182ms (Views: 167.7ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/pages/about" for 127.0.0.1 at 2016-11-18 12:42:50 +0000
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"about"}
+  Rendered pages/about.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_nav_links_for_auth.html.erb (5.3ms)
+  Rendered layouts/_navigation.html.erb (8.1ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 166ms (Views: 163.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/pages/about" for 127.0.0.1 at 2016-11-18 14:11:16 +0000
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"about"}
+  Rendered pages/about.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_nav_links_for_auth.html.erb (6.6ms)
+  Rendered layouts/_navigation.html.erb (11.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 186ms (Views: 183.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/1st_load_framework.self-d8b5b02764d8f85db434dad59cdcf2140a5d3f69c2f2a99b2c9f3556a4f89ebe.css?body=1" for 127.0.0.1 at 2016-11-18 14:11:16 +0000
+
+
+Started GET "/assets/application.self-27a424817124a538a1bd8a9038aea5396ae2ca72ec5dbb40fa23fc96e0859767.css?body=1" for 127.0.0.1 at 2016-11-18 14:11:16 +0000
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:16 +0000
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:16 +0000
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:16 +0000
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:16 +0000
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:16 +0000
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:16 +0000
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:16 +0000
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:17 +0000
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:17 +0000
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:17 +0000
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:17 +0000
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:17 +0000
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:17 +0000
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:17 +0000
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:17 +0000
+
+
+Started GET "/assets/application.self-120f3cf1cb67bea53c4a2a57336b34ca04b04b55a55c38cf76ce20a147e5eff9.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:17 +0000
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2016-11-18 14:11:17 +0000
